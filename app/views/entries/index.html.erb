@@ -1,0 +1,20 @@
+<h1>Entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Drinks</th>
+      <th>Journal</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.drinks %></td>
+      <td><%= entry.log %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
