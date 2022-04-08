@@ -1,20 +1,17 @@
-<h1>Entries</h1>
+<div class="container">
+  <h1>Entries</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Drinks</th>
-      <th>Journal</th>
-    </tr>
-  </thead>
+  <div>
+    <p>Alcohol free for: <%= @current %> days</p>
+    <p>Alcohol free since: <%= @start_date.strftime("%F") %> </p>
+  </div>
 
-  <tbody>
-  <% @entries.each do |entry| %>
-    <tr>
-      <td><%= entry.drinks %></td>
-      <td><%= entry.log %></td>
-    </tr>
-  <% end %>
-  </tbody>
+  <div>
+    <p>I've been alcohol free for</p>
+    <%# <p># years</p>
+    <p># weeks</p>
+    <p># days</p> %>
+    <p class="pie animate" style="--p:40;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of April</p>
 
-</table>
+  </div>
+</div>
