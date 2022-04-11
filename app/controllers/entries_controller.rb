@@ -2,9 +2,11 @@ require 'date'
 require "active_support"
 require "active_support/core_ext/date/calculations"
 
+# ActiveRecord::Base.connection.reset_pk_sequence!('Entries')
 class EntriesController < ApplicationController
   def index
     @entries = Entry.all
+    if !Entry.last.blank?
     @start_date = Entry.last.created_at
     @current = ((DateTime.new(2022,3,24))...(@start_date)).count
     end_of_month = Date.today.at_end_of_month.strftime('%d').to_f
@@ -24,6 +26,8 @@ class EntriesController < ApplicationController
     # binding.break
     
     # get percentage of sober days for year
+  else return nil
+  end
   end
 
   def create
