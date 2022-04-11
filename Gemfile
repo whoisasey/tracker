@@ -33,6 +33,9 @@ gem "chartkick"
 # Group Temporal Data
 gem "groupdate"
 
+# reset table PK
+gem 'activerecord-reset-pk-sequence'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
