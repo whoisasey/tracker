@@ -1,5 +1,9 @@
   <h1>Entries</h1>
 
+<button class="btn">
+  <%= link_to '+', new_entry_path %>
+</button>
+
   <div>
     <p>Alcohol free for: <%= @current %> days</p>
     <p>Alcohol free since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
@@ -14,6 +18,7 @@
 
   </div>
 
-<p>
-  <%= link_to 'Add new entry', new_entry_path %>
-</p>
+
+<div class="graph">
+  <%= line_chart Entry.group_by_day(:created_at).count %>
+</div>
