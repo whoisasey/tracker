@@ -1,9 +1,8 @@
-<div class="container">
   <h1>Entries</h1>
 
   <div>
     <p>Alcohol free for: <%= @current %> days</p>
-    <p>Alcohol free since: <%= @start_date.strftime("%F") %> </p>
+    <p>Alcohol free since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
   </div>
 
   <div>
@@ -14,4 +13,7 @@
     <p class="pie animate" style="--p:40;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of April</p>
 
   </div>
-</div>
+
+<p>
+  <%= link_to 'Add new entry', new_entry_path %>
+</p>

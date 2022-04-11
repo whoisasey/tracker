@@ -25,4 +25,10 @@ class EntriesController < ApplicationController
     
     # get percentage of sober days for year
   end
+
+  def create
+    @entry = Entry.new(params.require(:entry).permit(:drinks, :log, :created_at))
+    @entry.save
+    redirect_to entries_path
+  end
 end
