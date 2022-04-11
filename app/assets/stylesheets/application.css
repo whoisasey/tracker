@@ -14,6 +14,24 @@
  *= require_self
  */
 
+body {
+  background: #ddd;
+}
+
+a {
+  text-decoration: none;
+  color: navy;
+}
+
+/* Animation */
+
+@keyframes p {
+  from {
+    --p: 0;
+  }
+}
+
+/* Pie Chart */
 .pie {
   --p: 20;
   --b: 22px;
@@ -59,7 +77,7 @@
     translateY(calc(50% - var(--w) / 2));
 }
 .animate {
-  animation: p 1s 0.5s both;
+  animation: p 2s 0.5s both;
 }
 .no-round:before {
   background-size: 0 0, auto;
@@ -67,12 +85,18 @@
 .no-round:after {
   content: none;
 }
-@keyframes p {
-  from {
-    --p: 0;
-  }
+
+/* Button */
+.btn {
+  border-radius: 100%;
+  border: 1px solid navy;
 }
 
-body {
-  background: #ddd;
+.btn:hover {
+  border: 1px solid navajowhite;
+}
+
+/* Graph */
+.graph {
+  max-width: 80vw;
 }
