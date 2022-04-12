@@ -20,5 +20,5 @@
 
 
 <div class="graph">
-  <%= line_chart Entry.group_by_day(:created_at).count %>
+  <%= line_chart Entry.group_by_day(:updated_at).maximum(:drinks) %>
 </div>

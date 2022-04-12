@@ -31,8 +31,13 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(params.require(:entry).permit(:drinks, :log, :created_at))
-    @entry.save
+    @entry = Entry.new(params.require(:entry).permit(:drinks, :log, :updated_at))
+    drinks = params[:entry][:drinks].to_i
+    date = params[:entry][:date].to_date
+    @entry.updated_at = date
+    @entry.drinks = drinks
+    @entry.save!
+    # binding.break
     redirect_to entries_path
   end
 end
