@@ -1,1 +1,23 @@
 <h1>tracker app</h1>
+
+<button class="btn">
+  <%= link_to '+', new_entry_path %>
+</button>
+<div>
+  <p>Alcohol free for: <%= @current %> days</p>
+  <p>Alcohol free since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
+</div>
+
+  <div>
+  <p>I've been alcohol free for</p>
+  <%# <p># years</p>
+  <p># weeks</p>
+  <p># days</p> %>
+  <p class="pie animate" style="--p:40;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of April</p>
+
+</div>
+
+
+<div class="graph">
+<%= line_chart Entry.group_by_day(:updated_at).maximum(:drinks) %>
+</div>
