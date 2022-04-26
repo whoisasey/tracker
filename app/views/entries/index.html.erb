@@ -1,24 +1,18 @@
   <h1>Entries</h1>
 
-<button class="btn">
-  <%= link_to '+', new_entry_path %>
-</button>
-
-  <div>
-    <p>Alcohol free for: <%= @current %> days</p>
-    <p>Alcohol free since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
-  </div>
-
-  <div>
-    <p>I've been alcohol free for</p>
-    <%# <p># years</p>
-    <p># weeks</p>
-    <p># days</p> %>
-    <p class="pie animate" style="--p:40;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of April</p>
-
-  </div>
-
-
- <div class="graph">
-  <%= line_chart Entry.group_by_day(:updated_at).maximum(:drinks) %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Drinks Logged</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @entries.each do |entry| %>
+      <tr>
+        <td><%= entry.updated_at.strftime("%F") %></td>
+        <td style="text-align: center"><%= entry.drinks %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
