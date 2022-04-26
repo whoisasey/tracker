@@ -1,8 +1,15 @@
 <h1>tracker app</h1>
 
-<button class="btn">
-  <%= link_to '+', new_entry_path %>
-</button>
+<div class="add_entry_container">
+  <%= link_to new_entry_path do %>
+    <div class="button">
+      <div class="icon">
+          <i class="fa fa-solid fa-plus"></i>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <div>
   <p>Alcohol free for: <%= @current %> days</p>
   <p>Alcohol free since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
