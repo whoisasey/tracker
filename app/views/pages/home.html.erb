@@ -11,20 +11,18 @@
 </div>
 
 <div>
-  <p>Alcohol free for: <%= @current %> days</p>
-  <p>Alcohol free since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
+  <p>Practicing sobriety since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
 </div>
 
   <div>
   <p>I've been alcohol free for</p>
-  <%# <p># years</p>
-  <p># weeks</p>
-  <p># days</p> %>
-  <p class="pie animate" style="--p:40;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of April</p>
+  <p><%=  @get_month_alc_free_days %> days this month</p> 
+  <p><%= @sober_days_of_year %> days this year</p>
+  <p class="pie animate" style="--p:40;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of <%= DateTime.now().strftime('%b')%></p>
 
 </div>
 
 
 <div class="graph">
-<%= line_chart Entry.group_by_day(:updated_at).maximum(:drinks) %>
+<%= line_chart Entry.this_month.group_by_day(:updated_at).maximum(:drinks) %>
 </div>
