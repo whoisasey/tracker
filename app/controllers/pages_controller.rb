@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
-    @month_entries = Entry.this_month
     if !Entry.last.blank?
+      @month_entries = Entry.this_month
     end_of_month = Date.today.at_end_of_month.strftime('%d').to_f
     
     # get number of sober days for month
