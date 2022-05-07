@@ -16,9 +16,9 @@
 
   <div>
   <p>I've been alcohol free for</p>
-  <p><%=  @get_month_alc_free_days %> days this month</p> 
-  <p><%= @sober_days_of_year %> days this year</p>
-  <p class="pie animate" style="--p:40;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of <%= DateTime.now().strftime('%b')%></p>
+  <p><strong><%= @get_month_alc_free_days %></strong> days this month</p> 
+  <p><strong><%= @sober_days_of_year %></strong> days this year</p>
+  <p class="pie animate" style="--p:<%= @sober_days_in_month %>;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of <%= DateTime.now().strftime('%b')%></p>
 
 </div>
 
@@ -26,3 +26,5 @@
 <div class="graph">
 <%= line_chart Entry.this_month.group_by_day(:updated_at).maximum(:drinks) %>
 </div>
+
+<%= link_to 'see all time entries', entries_path %>
