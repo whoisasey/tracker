@@ -1,4 +1,4 @@
-<h1>tracker app</h1>
+<h1>atina's tracker app</h1>
 
 <div class="add_entry_container">
   <%= link_to new_entry_path do %>
@@ -14,13 +14,15 @@
   <p>Practicing sobriety since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
 </div>
 
-  <div>
+<div>
   <p>I've been alcohol free for</p>
   <p><strong><%= @get_month_alc_free_days %></strong> days this month</p> 
   <p><strong><%= @sober_days_of_year %></strong> days this year</p>
   <p class="pie animate" style="--p:<%= @sober_days_in_month %>;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of <%= DateTime.now().strftime('%b')%></p>
-
 </div>
+
+<p>days of drinking: <%= @drinks_this_month %></p>
+<p>drinks this month: <%= @no_of_drinks %></p>
 
 
 <div class="graph">

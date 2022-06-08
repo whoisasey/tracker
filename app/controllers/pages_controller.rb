@@ -16,6 +16,13 @@ class PagesController < ApplicationController
       entry.drinks == 0
     }.count
 
+    # get number of drinks for the month
+    @no_of_drinks = 0
+    @drinks_this_month = @month_entries.select{|entry|
+      # create variable and add when drinks are added
+      if  entry.drinks != 0 then @no_of_drinks += entry.drinks end
+    }.count
+
   else return nil
   end
 end

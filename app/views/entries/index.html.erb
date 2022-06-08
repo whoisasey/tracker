@@ -2,3 +2,4 @@
 <div class="graph">
 <%= line_chart Entry.group_by_day(:updated_at).maximum(:drinks) %>
 </div>
+<%= link_to 'back', root_path %>
