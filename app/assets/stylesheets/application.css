@@ -137,3 +137,22 @@ a {
 .graph {
   max-width: 80vw;
 }
+
+.stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats div {
+  width: 50%;
+}
+
+footer {
+  margin: 1rem auto;
+}
+
+@media (min-width: 480px) {
+  .stats {
+    flex-direction: row;
+  }
+}

@@ -1,6 +1,25 @@
 <h1>atina's tracker app</h1>
 
-<div class="add_entry_container">
+<div>
+  <p>Practicing sobriety since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
+</div>
+
+<div class="stats">
+  <div>
+    <p>I've been alcohol free for</p>
+    <p><strong><%= @get_month_alc_free_days %></strong> days this month</p>
+    <p><strong><%= @sober_days_of_year %></strong> days this year</p>
+  </div>
+  <div>
+    <p>I've had</p>
+    <p> <strong><%= @no_of_drinks %></strong> drinks this month </p>
+    <p><strong><%= @drinks_this_month %></strong> days of drinking </p>
+  </div>
+</div>
+
+<div class='' style="display: flex; justify-content: space-evenly; align-items: center;">
+  <p class="pie animate" style="--p:<%= @sober_days_in_month %>;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of <%= DateTime.now().strftime('%b')%></p>
+    <div class="add_entry_container">
   <%= link_to new_entry_path do %>
     <div class="button">
       <div class="icon">
@@ -9,24 +28,11 @@
     </div>
   <% end %>
 </div>
-
-<div>
-  <p>Practicing sobriety since: <%= DateTime.new(2022,3,24).strftime("%F") %> </p>
-</div>
-
-<div>
-  <p>I've been alcohol free for</p>
-  <p><strong><%= @get_month_alc_free_days %></strong> days this month</p> 
-  <p><strong><%= @sober_days_of_year %></strong> days this year</p>
-  <p class="pie animate" style="--p:<%= @sober_days_in_month %>;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of <%= DateTime.now().strftime('%b')%></p>
-</div>
-
-<p>days of drinking: <%= @drinks_this_month %></p>
-<p>drinks this month: <%= @no_of_drinks %></p>
+  </div>
 
 
 <div class="graph">
-<%= line_chart Entry.this_month.group_by_day(:updated_at).maximum(:drinks) %>
+  <%= line_chart Entry.this_month.group_by_day(:updated_at).maximum(:drinks) %>
 </div>
 
-<%= link_to 'see all time entries', entries_path %>
+<footer><%= link_to 'See All Time Entries', entries_path %></footer>
