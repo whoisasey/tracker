@@ -19,16 +19,18 @@
 
 <div class='' style="display: flex; justify-content: space-evenly; align-items: center;">
   <p class="pie animate" style="--p:<%= @sober_days_in_month %>;--c:darkblue;--b:10px"><%= @sober_days_in_month %>% of <%= DateTime.now().strftime('%b')%></p>
-    <div class="add_entry_container">
-  <%= link_to new_entry_path do %>
-    <div class="button">
-      <div class="icon">
-          <i class="fa fa-solid fa-plus"></i>
+  <div class="add_entry_container">
+  <% if Rails.env === 'development' %>
+    <%= link_to new_entry_path do %>
+      <div class="button">
+        <div class="icon">
+            <i class="fa fa-solid fa-plus"></i>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-</div>
   </div>
+</div>
 
 
 <div class="graph">
