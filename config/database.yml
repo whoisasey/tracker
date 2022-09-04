@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: alcohol_tracker_development
+  database: d74m47vbqbh965
+  user: xcvxcctyglikex
+  password: a5b116feee237c87667a0cf18783bcc13ddab405d01c6d6d05472768868fb307
+  host: ec2-54-80-123-146.compute-1.amazonaws.com
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -73,14 +76,15 @@ test:
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
-#   production:
-#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+# production:
+#   url: <%= ENV["MY_APP_DATABASE_URL"] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
 production:
   <<: *default
-  database: alcohol_tracker_production
-  username: alcohol_tracker
-  password: <%= ENV["ALCOHOL_TRACKER_DATABASE_PASSWORD"] %>
+  # database: alcohol_tracker_production
+  # username: alcohol_tracker
+  # password: <%= ENV["ALCOHOL_TRACKER_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
