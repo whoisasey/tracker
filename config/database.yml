@@ -24,6 +24,10 @@ default: &default
 development:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
+  # database: d74m47vbqbh965
+  # user: xcvxcctyglikex
+  # password: a5b116feee237c87667a0cf18783bcc13ddab405d01c6d6d05472768868fb307
+  # host: ec2-54-80-123-146.compute-1.amazonaws.com
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
